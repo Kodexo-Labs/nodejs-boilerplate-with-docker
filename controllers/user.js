@@ -1,8 +1,13 @@
 const User = require("../models/user");
+const { hashPassword } = require("../utils/authentications");
 
 exports.addUser = async (req, res, next) => {
   try {
-    const user = new User(req.body);
+    const data = {
+      ...req.body,
+      password: await hashPassword(req.body.password),
+    };
+    const user = new User(data);
     await user.save();
     return res.status(200).json({
       message: "User added successfully",

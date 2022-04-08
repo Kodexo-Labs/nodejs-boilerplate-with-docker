@@ -21,6 +21,7 @@
     "husky": "^7.0.4",
     "jsonwebtoken": "^8.5.1",
     "lint-staged": "^12.3.7",
+    "migrate-mongo": "^9.0.0",
     "mongodb": "^4.5.0",
     "mongoose": "^6.2.10",
     "morgan": "^1.10.0"

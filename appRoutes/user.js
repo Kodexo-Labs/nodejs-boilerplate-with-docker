@@ -1,8 +1,12 @@
 const route = require("express").Router();
+// eslint-disable-next-line
 const requireAuth = require("../middlewares/auth");
+// eslint-disable-next-line
 const roleAuth = require("../middlewares/role");
-const { getUsers } = require("../controllers/user");
+const { getUsers, addUser } = require("../controllers/user");
 
-route.get("/", [requireAuth, roleAuth("admin")], getUsers);
+route.get("/", getUsers);
+
+route.post("/", addUser);
 
 module.exports = route;
